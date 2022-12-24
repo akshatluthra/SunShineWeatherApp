@@ -1,0 +1,72 @@
+<div class="header">
+    <div class="main-title">
+        <h1>Sun<span><img width="50px" src="../../../assets/sun.png"></span>Shine Weather Forecast</h1>
+    </div>
+</div>
+<div class="search">
+    <form #form="ngForm" (submit)="onSubmit()">
+        <input type="text" placeholder="search city" name="city" [(ngModel)]="cityName">
+        <fa-icon (click)="getLocationByNavigation()" [icon]="map"></fa-icon>
+    </form>
+</div>
+<div class="container" *ngIf="weatherData">
+    <div class="first-section">
+        <img src="../../../assets/hot.jpg" *ngIf = "this.temp > 15">
+        <img src="../../../assets/winter.jpg" *ngIf = "this.temp <= 15">
+        <div class="weather-data">
+            <div class="location">{{weatherData.name}}</div>
+            <div class="temperature">{{ this.temp | number: '1.0-0'}}°C</div>
+        </div>
+    </div>
+    <div class="second-section">
+        <div class="more-info-label">
+            More Information
+        </div>
+
+        <div class="more-info-container">
+            <div class="info-block">
+                <div class="info-block-label">
+                    <img src="../../../assets/min.png">
+                    <span>min</span>
+                </div>
+                <div class="info-block-value">
+                    {{this.min_temp}}°C
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <img src="../../../assets/max.png">
+                    <span>max</span>
+                </div>
+                <div class="info-block-value">
+                    {{this.max_temp}}°C
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <img src="../../../assets/humidity.png">
+                    <span>humidity</span>
+                </div>
+                <div class="info-block-value">
+                    {{this.humidity}}%
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <img src="../../../assets/windy.png">
+                    <span>wind</span>
+                </div>
+                <div class="info-block-value">
+                    {{this.speed}} km/h
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="footer mt-1 text-center">
+    <h5>Developed by Akshat Luthra</h5>
+</div>
