@@ -11,9 +11,9 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
   getWeatherData(cityName: string):Observable<WeatherData> {
-    return this.http.get<WeatherData>("https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=045bf5770088af17604f345f8cfbfbc4")
+    return this.http.get<WeatherData>("https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid= {your_api_key}")
   }
   getWeatherByLocation(latitude:number, longitude:number){
-    return this.http.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=045bf5770088af17604f345f8cfbfbc4`)
+    return this.http.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid={your_api_key}`)
   }
 }
